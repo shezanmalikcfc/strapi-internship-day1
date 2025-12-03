@@ -1,61 +1,90 @@
-# 🚀 Getting started with Strapi
+DevOps Internship – Day 1 Task
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Strapi Setup, Content Type Creation, and GitHub Deployment
 
-### `develop`
+This repository contains my Day 1 work for the DevOps Internship program.
+The task included cloning the official Strapi repository, setting up Strapi locally, creating a sample content type, and pushing the project to GitHub.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+1. Cloned the Official Strapi Repository
 
-```
+As instructed, I first cloned the official Strapi source code:
+
+git clone https://github.com/strapi/strapi
+
+
+This repository contains the Strapi framework itself.
+Cloning it was required as part of the task, but I did not run the framework from this folder.
+
+2. Created a Local Strapi Project
+
+To run Strapi locally, I created a new project using the Strapi CLI:
+
+npx create-strapi@latest my-strapi-app
+
+
+(Alternatively, I could use yarn create strapi my-strapi-app.)
+
+During setup, I selected SQLite as the database for simplicity.
+After installation, I started the development server:
+
 npm run develop
-# or
-yarn develop
-```
 
-### `start`
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+Strapi became available at:
 
-```
-npm run start
-# or
-yarn start
-```
+Admin Panel: http://localhost:1337/admin
 
-### `build`
+API Base URL: http://localhost:1337/api
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+On the first run, I created an admin user account as prompted.
 
-```
-npm run build
-# or
-yarn build
-```
+3. Explored the Project Structure
 
-## ⚙️ Deployment
+After setting up the project, I opened it in VS Code and reviewed the structure.
+Key folders include:
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+src/
+ ├─ admin/        - Admin panel customizations
+ ├─ api/          - APIs and content types
+ ├─ extensions/   - Plugin overrides
+config/           - Environment and database configuration
+public/           - Static files
+package.json      - Dependencies and scripts
 
-```
-yarn strapi deploy
-```
 
-## 📚 Learn more
+The content type I created is located in:
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+src/api/article
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+4. Created a Sample Content Type
 
-## ✨ Community
+Using the Strapi Admin Panel, I created a new collection type named "Article".
+The fields I added were:
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+title (short text)
 
----
+content (rich text)
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+publishedAt (date)
+
+After saving, Strapi automatically generated the schema file at:
+
+src/api/article/content-types/article/schema.json
+
+
+I also created a sample entry under the Article content type to verify that it was working.
+
+5. Initialized Git and Pushed to GitHub
+
+Inside the Strapi project folder, I initialized a Git repository:
+
+git init
+git add .
+git commit -m "Initial Strapi setup with sample Article content type"
+
+
+Then I created a new GitHub repository and pushed the project:
+
+git remote add origin <your-repo-url>
+git branch -M main
+git push -u origin main
