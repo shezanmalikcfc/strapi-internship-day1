@@ -1,4 +1,4 @@
-DevOps Internship – Day 1 Task
+DevOps Internship – Day 1 Task for my Devops Internship with Pearlthoughts
 
 Strapi Setup, Content Type Creation, and GitHub Deployment
 
